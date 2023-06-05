@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>My List Song </h3>
+<p>
+    <a th:href="@{/song/create}">Add new song</a>
+</p>
+<table id="song">
+    <thead>
+    <tr>
+        <td>songName</td>
+        <td>author</td>
+        <td>playList</td>
+        <td>url</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="song : ${songs}" >
+        <td th:text="${song.getSongName()()}"></td>
+        <td th:text="${song.getAuthor()}"></td>
+        <td th:text="${song.getPlayList()}"></td>
+        <td> <source src="audio.mp3" type="audio/mpeg" th:text="${song.getUrl()}"></td>
+    </tr>
+    </tbody>
+
+</table>
+</body>
+</html>
